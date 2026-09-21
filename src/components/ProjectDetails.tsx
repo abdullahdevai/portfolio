@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { GithubIcon } from './icons/BrandIcons'
 import { formatProjectNumber, getNextProject, getProjectBySlug } from '../data/projects'
+import { site } from '../data/site'
 import { fadeUp, imageReveal, staggerChildren, viewportOnce } from '../animations/variants'
 import Reveal from './ui/Reveal'
 import RevealLines from './ui/RevealLines'
@@ -59,9 +60,9 @@ export default function ProjectDetails() {
   }, [project, navigate])
 
   useEffect(() => {
-    if (project) document.title = `${project.title} — AB`
+    if (project) document.title = `${project.title} — ${site.name}`
     return () => {
-      document.title = 'AB — Creative Developer'
+      document.title = `${site.name} — ${site.role}`
     }
   }, [project])
 

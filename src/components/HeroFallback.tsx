@@ -21,9 +21,13 @@ export default function HeroFallback() {
           </div>
         </div>
 
-        {/* Orb */}
-        <div className="animate-float-y absolute inset-[8%] rounded-full bg-[radial-gradient(circle_at_32%_28%,#3a3a48_0%,#15151c_38%,#07070a_75%)] shadow-[inset_-20px_-30px_60px_rgba(0,0,0,0.9),inset_18px_16px_40px_rgba(123,97,255,0.25),0_0_80px_rgba(123,97,255,0.25)]">
-          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_70%_75%,rgba(123,97,255,0.35),transparent_45%)]" />
+        {/* Globe: the day texture pans slowly to suggest rotation */}
+        <div className="animate-float-y absolute inset-[8%] overflow-hidden rounded-full shadow-[0_0_80px_rgba(111,141,255,0.25)]">
+          <div
+            className="animate-globe-pan absolute inset-0 bg-[url('/textures/earth-day-1024.jpg')] bg-[length:200%_100%] bg-repeat-x"
+          />
+          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.08),transparent_45%),linear-gradient(115deg,transparent_35%,rgba(5,5,5,0.55)_60%,rgba(5,5,5,0.95)_85%)]" />
+          <div className="absolute inset-0 rounded-full shadow-[inset_0_0_30px_rgba(111,141,255,0.55)]" />
         </div>
       </div>
     </div>

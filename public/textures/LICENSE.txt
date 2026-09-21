@@ -1,0 +1,2 @@
+Earth textures derived from NASA Blue Marble / Black Marble imagery (public domain),
+as distributed with the three.js examples (examples/textures/planets).

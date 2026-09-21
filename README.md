@@ -1,4 +1,4 @@
-# AB — Creative Developer Portfolio
+# Abdullah — Creative Developer Portfolio
 
 A premium, interactive 3D developer portfolio built with React + Vite.
 
@@ -6,7 +6,7 @@ A premium, interactive 3D developer portfolio built with React + Vite.
 
 - React 19 + Vite 8 (TypeScript, React Compiler)
 - Tailwind CSS 4
-- Three.js + React Three Fiber + drei (procedural hero scene, no external assets)
+- Three.js + React Three Fiber + drei (Earth hero scene; NASA public-domain textures in `public/textures/`)
 - GSAP + ScrollTrigger (intro sequence, scroll-scrubbed effects)
 - Framer Motion (reveals, page transitions, mobile menu)
 - Lenis (smooth scrolling, synced to GSAP's ticker)
@@ -38,7 +38,8 @@ All copy and content lives in `src/data/` — components never hardcode it.
 
 Project images are placeholder SVGs in `public/images/`. Replace them with real
 screenshots (e.g. `project-1.webp`) and update the `image` / `gallery` paths in
-`src/data/projects.ts`. Update the Open Graph `og:url` / `og:image` in `index.html`.
+`src/data/projects.ts`. Set `og:url` in `index.html` to the deployed site URL once it's live.
+LinkedIn and Upwork links in `src/data/site.ts` are still placeholders.
 
 ## Structure
 
@@ -60,6 +61,6 @@ src/
   and scroll-scrubbed effects are disabled; content renders immediately.
 - **Touch devices**: custom cursor, magnetic and tilt effects are off; the 3D scene uses
   the low-quality preset (fewer particles, lower geometry detail, capped DPR).
-- **No WebGL**: `HeroFallback` renders a CSS-only orb; the canvas is also wrapped in an
+- **No WebGL**: `HeroFallback` renders a CSS globe from the same day texture; the canvas is also wrapped in an
   error boundary so a renderer failure never breaks the page.
 - The hero canvas pauses its frame loop when scrolled out of view.

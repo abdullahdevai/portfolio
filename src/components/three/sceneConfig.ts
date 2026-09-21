@@ -7,16 +7,22 @@ export const damp = (current: number, target: number, lambda: number, dt: number
   THREE.MathUtils.damp(current, target, lambda, dt)
 
 export interface SceneQuality {
-  orbDetail: number
+  sphereSegments: number
+  textureSize: 1024 | 2048
   particleCount: number
   ringSegments: number
   dpr: [number, number]
 }
 
 export const QUALITY: Record<'high' | 'low', SceneQuality> = {
-  high: { orbDetail: 24, particleCount: 320, ringSegments: 160, dpr: [1, 1.5] },
-  low: { orbDetail: 12, particleCount: 110, ringSegments: 96, dpr: [1, 1.25] },
+  high: { sphereSegments: 96, textureSize: 2048, particleCount: 320, ringSegments: 160, dpr: [1, 1.5] },
+  low: { sphereSegments: 48, textureSize: 1024, particleCount: 110, ringSegments: 96, dpr: [1, 1.25] },
 }
+
+export const earthTextures = (size: 1024 | 2048) => ({
+  day: `/textures/earth-day-${size}.jpg`,
+  lights: `/textures/earth-lights-${size}.jpg`,
+})
 
 /** Small deterministic PRNG (mulberry32) so particle layouts are stable and render-pure. */
 export function createRandom(seed: number) {

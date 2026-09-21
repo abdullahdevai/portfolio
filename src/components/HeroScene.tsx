@@ -4,7 +4,7 @@ import { Environment, Float, Lightformer, PerspectiveCamera } from '@react-three
 import type { MousePosition } from '../hooks/useMousePosition'
 import { useInViewport } from '../hooks/useInViewport'
 import { QUALITY } from './three/sceneConfig'
-import Orb from './three/Orb'
+import Earth from './three/Earth'
 import Rings from './three/Rings'
 import Particles from './three/Particles'
 import Rig from './three/Rig'
@@ -37,9 +37,10 @@ export default function HeroScene({ mouse, quality, animate, active }: HeroScene
         style={{ background: 'transparent' }}
       >
         <PerspectiveCamera makeDefault fov={38} position={[0, 0, 7]} />
-        <ambientLight intensity={0.25} />
-        <directionalLight position={[-4, 3, 2]} intensity={1.6} color="#ffffff" />
-        <directionalLight position={[3, -3, -4]} intensity={0.8} color="#6c5cff" />
+        {/* One "sun" from the upper left gives a clear day/night terminator */}
+        <ambientLight intensity={0.06} />
+        <directionalLight position={[-6, 2.5, 3]} intensity={2.6} color="#fff4e6" />
+        <directionalLight position={[4, -2, -5]} intensity={0.35} color="#6c5cff" />
         <Rig mouse={mouse} />
 
         <Suspense fallback={null}>
@@ -50,8 +51,8 @@ export default function HeroScene({ mouse, quality, animate, active }: HeroScene
             <Lightformer form="circle" intensity={0.8} color="#ffffff" position={[0, -4, 3]} scale={3} />
           </Environment>
 
-          <Float speed={animate ? 1.4 : 0} rotationIntensity={animate ? 0.35 : 0} floatIntensity={animate ? 0.9 : 0} floatingRange={[-0.15, 0.15]}>
-            <Orb mouse={mouse} detail={q.orbDetail} animate={animate} scaleTarget={scaleTarget} />
+          <Float speed={animate ? 1.2 : 0} rotationIntensity={0} floatIntensity={animate ? 0.6 : 0} floatingRange={[-0.12, 0.12]}>
+            <Earth mouse={mouse} segments={q.sphereSegments} textureSize={q.textureSize} animate={animate} scaleTarget={scaleTarget} />
             <Rings mouse={mouse} animate={animate} segments={q.ringSegments} />
           </Float>
           <Particles mouse={mouse} count={q.particleCount} animate={animate} />

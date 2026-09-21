@@ -227,3 +227,18 @@ body {
 html {
   overflow-x: clip;
 }
+
+@keyframes globe-pan {
+  from { background-position-x: 0%; }
+  to { background-position-x: -200%; }
+}
+
+@utility animate-globe-pan {
+  animation: globe-pan 60s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-globe-pan {
+    animation: none;
+  }
+}

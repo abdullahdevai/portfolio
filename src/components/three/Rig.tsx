@@ -32,5 +32,5 @@ export default function Rig({ mouse }: RigProps) {
     }
   })
 
-  return <pointLight ref={light} position={LIGHT_BASE} intensity={22} color="#9d8cff" distance={12} decay={2} />
+  return <pointLight ref={light} position={LIGHT_BASE} intensity={5} color="#9d8cff" distance={12} decay={2} />
 }
