@@ -1,78 +1,65 @@
-# React + TypeScript + Vite
+# AB — Creative Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, interactive 3D developer portfolio built with React + Vite.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 + Vite 8 (TypeScript, React Compiler)
+- Tailwind CSS 4
+- Three.js + React Three Fiber + drei (procedural hero scene, no external assets)
+- GSAP + ScrollTrigger (intro sequence, scroll-scrubbed effects)
+- Framer Motion (reveals, page transitions, mobile menu)
+- Lenis (smooth scrolling, synced to GSAP's ticker)
+- React Router (case-study pages at `/work/:slug`)
+- Lucide React (icons)
 
-## React Compiler
+## Scripts
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run dev      # start the dev server
+npm run build    # type-check + production build
+npm run preview  # serve the production build
+npm run lint     # eslint (includes React Compiler rules)
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Editing content
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+All copy and content lives in `src/data/` — components never hardcode it.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| File                     | Contains                                                       |
+| ------------------------ | -------------------------------------------------------------- |
+| `src/data/site.ts`       | Name, email, location, availability, nav links, social links   |
+| `src/data/projects.ts`   | Projects + full case-study content (`/work/:slug`)             |
+| `src/data/skills.ts`     | Tech stack pills, descriptions, icons and desktop positions    |
+| `src/data/experience.ts` | Timeline items                                                 |
+| `src/data/services.ts`   | Services rows                                                  |
+| `src/data/process.ts`    | "How I work" steps                                             |
+| `src/data/about.ts`      | About statement, paragraphs, rotating technologies, facts      |
+
+Project images are placeholder SVGs in `public/images/`. Replace them with real
+screenshots (e.g. `project-1.webp`) and update the `image` / `gallery` paths in
+`src/data/projects.ts`. Update the Open Graph `og:url` / `og:image` in `index.html`.
+
+## Structure
 
 ```
+src/
+  animations/   shared Framer Motion variants + GSAP helpers
+  components/   sections, UI primitives (ui/), 3D scene parts (three/)
+  context/      app state, Lenis smooth-scroll provider
+  data/         all content
+  hooks/        useMediaQuery, useMousePosition, useInViewport, section navigation
+  lib/          gsap registration, motion/media queries, WebGL detection
+  pages/        Home, ProjectPage
+  styles/       globals.css (Tailwind theme tokens + utilities)
+```
+
+## Behaviour notes
+
+- **Reduced motion**: Lenis, the custom cursor, the intro timeline, floating/auto-rotation
+  and scroll-scrubbed effects are disabled; content renders immediately.
+- **Touch devices**: custom cursor, magnetic and tilt effects are off; the 3D scene uses
+  the low-quality preset (fewer particles, lower geometry detail, capped DPR).
+- **No WebGL**: `HeroFallback` renders a CSS-only orb; the canvas is also wrapped in an
+  error boundary so a renderer failure never breaks the page.
+- The hero canvas pauses its frame loop when scrolled out of view.
