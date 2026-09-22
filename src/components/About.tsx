@@ -8,8 +8,7 @@ import Reveal from './ui/Reveal'
 import RevealLines from './ui/RevealLines'
 import TechPanel from './TechPanel'
 import Portrait from './Portrait'
-
-const STATEMENT_LINES = ['I build interfaces', 'where design, technology', 'and motion come together.']
+import { GraduationCap } from 'lucide-react'
 
 export default function About() {
   const root = useRef<HTMLElement>(null)
@@ -54,7 +53,7 @@ export default function About() {
         </Reveal>
 
         <div className="mt-12">
-          <RevealLines as="p" lines={STATEMENT_LINES} className="text-statement max-w-4xl" stagger={0.12} />
+          <RevealLines as="p" lines={about.statementLines} className="text-statement max-w-4xl" stagger={0.12} />
         </div>
 
         <div className="mt-16 grid gap-12 lg:mt-24 lg:grid-cols-12 lg:gap-8">
@@ -91,6 +90,21 @@ export default function About() {
                   </div>
                 ))}
               </dl>
+            </Reveal>
+
+            <Reveal delay={0.3} className="mt-10">
+              <div className="flex items-start gap-4 border-t border-white/10 pt-8">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 text-accent">
+                  <GraduationCap aria-hidden="true" className="h-4 w-4" />
+                </span>
+                <div>
+                  <span className="text-label">Education</span>
+                  <p className="mt-2 font-display text-lg font-medium">{about.education.degree}</p>
+                  <p className="mt-1 text-sm text-muted">
+                    {about.education.institution} — {about.education.location}
+                  </p>
+                </div>
+              </div>
             </Reveal>
           </div>
         </div>

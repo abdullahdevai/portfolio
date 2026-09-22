@@ -94,7 +94,7 @@ export default function Hero() {
         <div className="max-w-3xl pt-[42svh] md:pt-0 lg:max-w-4xl">
           <p data-hero-label className="text-label mb-8 flex items-center gap-3">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-            Creative Developer
+            Backend-focused Full-Stack Developer
           </p>
 
           <h1 className="text-display">
@@ -106,8 +106,8 @@ export default function Hero() {
           </h1>
 
           <p data-hero-desc className="mt-8 max-w-md text-base leading-relaxed text-muted sm:text-lg">
-            I design and build modern web applications with a strong focus on interaction, performance and user
-            experience.
+            I design and build modern web applications — from Laravel APIs to Vue, Nuxt, React and Next.js frontends —
+            with a strong focus on performance and user experience.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3 sm:gap-4">

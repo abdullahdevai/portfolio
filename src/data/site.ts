@@ -7,7 +7,7 @@ export type IconComponent = ComponentType<{ className?: string; 'aria-hidden'?: 
 export const site = {
   initials: 'AB',
   name: 'Abdullah',
-  role: 'Creative Developer',
+  role: 'Full-Stack Developer',
   email: 'developerabweb@gmail.com',
   location: 'Dhaka, Bangladesh',
   timezone: 'Asia/Dhaka',
@@ -34,10 +34,10 @@ export interface SocialLink {
   icon: IconComponent
 }
 
-// LinkedIn and Upwork are still placeholders — swap for the real profiles.
+// Upwork is still a placeholder — swap for the real profile or remove it.
 export const socialLinks: SocialLink[] = [
   { label: 'Email', href: `mailto:${site.email}`, icon: Mail },
   { label: 'GitHub', href: 'https://github.com/abdullahdevai', icon: GithubIcon },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/username', icon: LinkedinIcon },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abdullahai', icon: LinkedinIcon },
   { label: 'Upwork', href: 'https://upwork.com/freelancers/username', icon: Briefcase },
 ]

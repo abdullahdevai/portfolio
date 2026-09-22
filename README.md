@@ -1,4 +1,4 @@
-# Abdullah — Creative Developer Portfolio
+# Abdullah — Full-Stack Developer Portfolio
 
 A premium, interactive 3D developer portfolio built with React + Vite.
 
@@ -39,7 +39,7 @@ All copy and content lives in `src/data/` — components never hardcode it.
 Project images are placeholder SVGs in `public/images/`. Replace them with real
 screenshots (e.g. `project-1.webp`) and update the `image` / `gallery` paths in
 `src/data/projects.ts`. Set `og:url` in `index.html` to the deployed site URL once it's live.
-LinkedIn and Upwork links in `src/data/site.ts` are still placeholders.
+The Upwork link in `src/data/site.ts` is still a placeholder.
 
 ## Structure
 

@@ -41,13 +41,13 @@ export const projects: Project[] = [
     category: 'Web Application',
     description:
       'A modern management platform with interactive dashboards, CRUD workflows and real-time analytics for operations teams.',
-    technologies: ['React', 'TypeScript', 'Tailwind', 'REST API'],
+    technologies: ['Laravel', 'Inertia', 'Vue', 'MySQL'],
     image: '/images/project-1.svg',
     liveUrl: '#',
     githubUrl: '#',
     featured: true,
     year: '2025',
-    role: 'Frontend Lead',
+    role: 'Full-Stack Developer',
     caseStudy: {
       overview:
         'An internal operations platform used daily by administrators to manage users, roles, content and reporting. The goal was a fast, keyboard-friendly interface that scales from a handful of records to hundreds of thousands.',
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     category: 'Storefront & Checkout',
     description:
       'A high-conversion storefront with product discovery, a frictionless checkout and a merchant back office.',
-    technologies: ['Vue', 'JavaScript', 'Tailwind', 'Stripe'],
+    technologies: ['Laravel', 'Nuxt', 'MySQL', 'Stripe'],
     image: '/images/project-2.svg',
     liveUrl: '#',
     githubUrl: '#',
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     category: 'Business Software',
     description:
       'A point-of-sale and inventory system built for speed at the counter, with offline support and multi-branch stock tracking.',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'PWA'],
+    technologies: ['Laravel', 'React', 'MySQL', 'PWA'],
     image: '/images/project-3.svg',
     liveUrl: '#',
     githubUrl: '#',
@@ -164,13 +164,13 @@ export const projects: Project[] = [
     category: 'Developer Tools',
     description:
       'A monitoring dashboard for engineering teams with deployment timelines, log search and service health at a glance.',
-    technologies: ['React', 'TypeScript', 'Three.js', 'WebSockets'],
+    technologies: ['Next.js', 'TypeScript', 'Node.js', 'WebSockets'],
     image: '/images/project-4.svg',
     liveUrl: '#',
     githubUrl: '#',
     featured: true,
     year: '2025',
-    role: 'Frontend Engineer',
+    role: 'Full-Stack Engineer',
     caseStudy: {
       overview:
         'A single pane of glass for engineering teams: deployments, service health, logs and alerts streamed in real time.',
