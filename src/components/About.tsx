@@ -2,36 +2,32 @@ import { useLayoutEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from '../lib/gsap'
 import { about } from '../data/about'
 import { useMediaQuery } from '../hooks/useMediaQuery'
-import { REDUCED_MOTION_QUERY, TABLET_QUERY } from '../lib/motion'
+import { REDUCED_MOTION_QUERY } from '../lib/motion'
 import { fadeIn } from '../animations/variants'
 import Reveal from './ui/Reveal'
 import RevealLines from './ui/RevealLines'
 import TechPanel from './TechPanel'
+import Portrait from './Portrait'
 
 const STATEMENT_LINES = ['I build interfaces', 'where design, technology', 'and motion come together.']
 
 export default function About() {
   const root = useRef<HTMLElement>(null)
   const reduced = useMediaQuery(REDUCED_MOTION_QUERY)
-  const isTablet = useMediaQuery(TABLET_QUERY)
+  // The overlapping portrait/panel composition only exists from the xl breakpoint up.
+  const isDesktop = useMediaQuery('(min-width: 1280px)')
 
-  // Parallax the panel against the copy on larger screens.
+  // Portrait and panel drift at different speeds against the copy on large screens.
   useLayoutEffect(() => {
-    if (reduced || isTablet) return
+    if (reduced || !isDesktop) return
     const ctx = gsap.context(() => {
-      gsap.to('[data-about-panel]', {
-        y: -80,
-        ease: 'none',
-        scrollTrigger: { trigger: root.current, start: 'top bottom', end: 'bottom top', scrub: 1.2 },
-      })
-      gsap.to('[data-about-word]', {
-        xPercent: -12,
-        ease: 'none',
-        scrollTrigger: { trigger: root.current, start: 'top bottom', end: 'bottom top', scrub: 1.5 },
-      })
+      const trigger = { trigger: root.current, start: 'top bottom', end: 'bottom top' }
+      gsap.to('[data-about-portrait]', { y: -60, ease: 'none', scrollTrigger: { ...trigger, scrub: 1.2 } })
+      gsap.to('[data-about-panel]', { y: -70, ease: 'none', scrollTrigger: { ...trigger, scrub: 1 } })
+      gsap.to('[data-about-word]', { xPercent: -12, ease: 'none', scrollTrigger: { ...trigger, scrub: 1.5 } })
     }, root)
     return () => ctx.revert()
-  }, [reduced, isTablet])
+  }, [reduced, isDesktop])
 
   useLayoutEffect(() => {
     ScrollTrigger.refresh()
@@ -57,20 +53,27 @@ export default function About() {
           <span className="hairline max-w-24 flex-1" aria-hidden="true" />
         </Reveal>
 
-        <div className="mt-12 grid gap-16 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-8">
-            <RevealLines as="p" lines={STATEMENT_LINES} className="text-statement max-w-4xl" stagger={0.12} />
-          </div>
+        <div className="mt-12">
+          <RevealLines as="p" lines={STATEMENT_LINES} className="text-statement max-w-4xl" stagger={0.12} />
+        </div>
 
-          <div className="lg:col-span-4 lg:col-start-9 lg:row-start-2 lg:mt-4">
-            <div data-about-panel className="lg:-mt-24">
-              <Reveal variants={fadeIn} delay={0.2}>
+        <div className="mt-16 grid gap-12 lg:mt-24 lg:grid-cols-12 lg:gap-8">
+          {/* Portrait with the tech panel overlapping its lower-right corner */}
+          <div className="relative lg:col-span-5 lg:col-start-1">
+            <div data-about-portrait className="xl:pr-12">
+              <Portrait />
+            </div>
+            <div
+              data-about-panel
+              className="mt-6 xl:absolute xl:-right-56 xl:-bottom-12 xl:mt-0 xl:w-[24rem]"
+            >
+              <Reveal variants={fadeIn} delay={0.25}>
                 <TechPanel />
               </Reveal>
             </div>
           </div>
 
-          <div className="lg:col-span-6 lg:col-start-2 lg:row-start-2 lg:mt-16">
+          <div className="lg:col-span-6 lg:col-start-7 lg:pt-8 xl:col-span-5 xl:col-start-8">
             <div className="flex flex-col gap-6">
               {about.paragraphs.map((text, i) => (
                 <Reveal key={text} delay={i * 0.1}>
