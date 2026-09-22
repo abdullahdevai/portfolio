@@ -8,6 +8,7 @@ import { useSmoothScroll } from '../context/smoothScrollContext'
 import { useSectionNavigation } from '../hooks/useSectionNavigation'
 import { EASE_OUT } from '../animations/variants'
 import Magnetic from './ui/Magnetic'
+import Logo from './ui/Logo'
 
 const SCROLL_THRESHOLD = 40
 
@@ -70,7 +71,7 @@ export default function Navbar() {
         >
           <Link
             to="/"
-            className="font-display text-lg font-bold tracking-tight"
+            className="flex items-center"
             aria-label={`${site.name} — home`}
             onClick={(e) => {
               setOpen(false)
@@ -80,8 +81,7 @@ export default function Navbar() {
               }
             }}
           >
-            {site.initials}
-            <span className="text-accent">.</span>
+            <Logo size={scrolled ? 'sm' : 'md'} />
           </Link>
 
           <ul className="hidden items-center gap-1 md:flex">

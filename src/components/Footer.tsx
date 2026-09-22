@@ -2,6 +2,7 @@ import { ArrowUp } from 'lucide-react'
 import { site, socialLinks } from '../data/site'
 import { useSectionNavigation } from '../hooks/useSectionNavigation'
 import Magnetic from './ui/Magnetic'
+import Logo from './ui/Logo'
 
 export default function Footer() {
   const goTo = useSectionNavigation()
@@ -12,10 +13,7 @@ export default function Footer() {
       <span className="hairline mb-8" aria-hidden="true" />
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-4">
-          <span className="font-display text-lg font-bold">
-            {site.initials}
-            <span className="text-accent">.</span>
-          </span>
+          <Logo size="sm" />
           <span className="text-sm text-muted">
             © {year} {site.name}. All rights reserved.
           </span>

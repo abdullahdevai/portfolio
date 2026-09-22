@@ -45,14 +45,18 @@ export default function Loader({ onComplete }: LoaderProps) {
           role="status"
         >
           <div className="flex flex-col items-center gap-6">
-            <motion.span
-              className="font-display text-4xl font-bold tracking-tight"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } }}
+            <motion.div
+              className="flex flex-col items-center gap-4"
+              initial={{ opacity: 0, y: 12, scale: 0.92 }}
+              animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: EASE_OUT } }}
               exit={{ opacity: 0, y: -12, transition: { duration: 0.3 } }}
             >
-              {site.initials}
-            </motion.span>
+              <img src="/images/logo-128.png" alt="" width={128} height={128} className="h-16 w-16 rounded-full" />
+              <span className="font-display text-2xl font-bold tracking-tight">
+                {site.initials}
+                <span className="text-accent">.</span>
+              </span>
+            </motion.div>
             <span className="relative h-px w-24 overflow-hidden bg-white/10" aria-hidden="true">
               <motion.span
                 className="absolute inset-y-0 left-0 w-full bg-accent"
