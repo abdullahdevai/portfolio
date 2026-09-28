@@ -5,6 +5,7 @@ import { formatProjectNumber, type Project } from '../data/projects'
 import { fadeUp, imageReveal, staggerChildren, viewportOnce } from '../animations/variants'
 import TiltCard from './ui/TiltCard'
 import Button from './ui/Button'
+import ProjectImage from './ui/ProjectImage'
 
 interface ProjectCardProps {
   project: Project
@@ -47,13 +48,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             className="relative block w-full overflow-hidden rounded-2xl border border-white/10 bg-card"
           >
             <span className="block aspect-[16/10] overflow-hidden">
-              <img
+              <ProjectImage
                 src={project.image}
                 alt={`${project.title} interface preview`}
-                loading="lazy"
-                decoding="async"
-                width={1600}
-                height={1000}
+                eager={index === 0}
                 className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out-expo group-hover:scale-[1.04]"
               />
             </span>

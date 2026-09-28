@@ -36,9 +36,10 @@ All copy and content lives in `src/data/` — components never hardcode it.
 | `src/data/process.ts`    | "How I work" steps                                             |
 | `src/data/about.ts`      | About statement, paragraphs, rotating technologies, facts      |
 
-Project images are placeholder SVGs in `public/images/`. Replace them with real
-screenshots (e.g. `project-1.webp`) and update the `image` / `gallery` paths in
-`src/data/projects.ts`. Set `og:url` in `index.html` to the deployed site URL once it's live.
+Project images are real screenshots in `public/images/`, captured from the live sites.
+Each project has `project-N.webp` / `.jpg` (1600×1000) plus a `-800.webp` variant and an
+`-alt` second frame. The `image` and `gallery` fields hold the **base path without an
+extension** (e.g. `/images/project-1`); `ProjectImage` picks the right format and size. Set `og:url` in `index.html` to the deployed site URL once it's live.
 The Upwork link in `src/data/site.ts` is still a placeholder.
 
 ## Structure

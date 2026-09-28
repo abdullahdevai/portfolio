@@ -10,6 +10,7 @@ import Reveal from './ui/Reveal'
 import RevealLines from './ui/RevealLines'
 import Button from './ui/Button'
 import TiltCard from './ui/TiltCard'
+import ProjectImage from './ui/ProjectImage'
 
 const MAX_LINE_CHARS = 16
 
@@ -99,10 +100,12 @@ export default function ProjectDetails() {
               <Button href={project.liveUrl} target={project.liveUrl.startsWith('http') ? '_blank' : undefined} rel="noreferrer">
                 Live Demo
               </Button>
-              <Button href={project.githubUrl} target={project.githubUrl.startsWith('http') ? '_blank' : undefined} rel="noreferrer" variant="ghost" arrow={false}>
-                <GithubIcon aria-hidden="true" className="h-4 w-4" />
-                Source
-              </Button>
+              {project.githubUrl && (
+                <Button href={project.githubUrl} target="_blank" rel="noreferrer" variant="ghost" arrow={false}>
+                  <GithubIcon aria-hidden="true" className="h-4 w-4" />
+                  Source
+                </Button>
+              )}
             </div>
           </Reveal>
 
@@ -128,7 +131,7 @@ export default function ProjectDetails() {
       <div className="container-x mt-16 lg:mt-24">
         <Reveal variants={imageReveal}>
           <figure className="overflow-hidden rounded-2xl border border-white/10 bg-card">
-            <img src={project.image} alt={`${project.title} main interface`} width={1600} height={1000} className="aspect-[16/10] w-full object-cover" />
+            <ProjectImage src={project.image} alt={`${project.title} main interface`} eager className="aspect-[16/10] w-full object-cover" sizes="(min-width: 1024px) 90vw, 100vw" />
           </figure>
         </Reveal>
       </div>
@@ -219,7 +222,7 @@ export default function ProjectDetails() {
             >
               <TiltCard max={3}>
                 <figure className="overflow-hidden rounded-2xl border border-white/10 bg-card">
-                  <img src={src} alt={`${project.title} screen ${i + 1}`} loading="lazy" decoding="async" width={1600} height={1000} className="aspect-[16/10] w-full object-cover" />
+                  <ProjectImage src={src} alt={`${project.title} screen ${i + 1}`} className="aspect-[16/10] w-full object-cover" sizes="(min-width: 1024px) 60vw, 100vw" />
                 </figure>
               </TiltCard>
             </Reveal>
