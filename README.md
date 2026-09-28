@@ -37,6 +37,8 @@ All copy and content lives in `src/data/` — components never hardcode it.
 | `src/data/about.ts`      | About statement, paragraphs, rotating technologies, facts      |
 
 Project images are real screenshots in `public/images/`, captured from the live sites.
+Case studies show them in `ImageSlider` (arrows, dots, drag, arrow keys); each `gallery`
+entry is `{ src, caption? }`, so adding a screenshot is just another entry.
 Each project has `project-N.webp` / `.jpg` (1600×1000) plus a `-800.webp` variant and an
 `-alt` second frame. The `image` and `gallery` fields hold the **base path without an
 extension** (e.g. `/images/project-1`); `ProjectImage` picks the right format and size. Set `og:url` in `index.html` to the deployed site URL once it's live.

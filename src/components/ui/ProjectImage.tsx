@@ -6,10 +6,12 @@ interface ProjectImageProps {
   /** First project image is above the fold on the work section; the rest lazy-load. */
   eager?: boolean
   sizes?: string
+  /** Set false inside draggable surfaces so the native image drag doesn't win. */
+  draggable?: boolean
 }
 
 /** Responsive project screenshot: WebP with a JPEG fallback. */
-export default function ProjectImage({ src, alt, className, eager = false, sizes = '(min-width: 1024px) 60vw, 100vw' }: ProjectImageProps) {
+export default function ProjectImage({ src, alt, className, eager = false, sizes = '(min-width: 1024px) 60vw, 100vw', draggable }: ProjectImageProps) {
   return (
     <picture>
       <source srcSet={`${src}-800.webp 800w, ${src}.webp 1600w`} sizes={sizes} type="image/webp" />
@@ -20,6 +22,7 @@ export default function ProjectImage({ src, alt, className, eager = false, sizes
         height={1000}
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
+        draggable={draggable}
         className={className}
       />
     </picture>

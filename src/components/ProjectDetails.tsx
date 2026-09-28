@@ -9,8 +9,8 @@ import { fadeUp, imageReveal, staggerChildren, viewportOnce } from '../animation
 import Reveal from './ui/Reveal'
 import RevealLines from './ui/RevealLines'
 import Button from './ui/Button'
-import TiltCard from './ui/TiltCard'
 import ProjectImage from './ui/ProjectImage'
+import ImageSlider from './ui/ImageSlider'
 
 const MAX_LINE_CHARS = 16
 
@@ -212,22 +212,9 @@ export default function ProjectDetails() {
         <SectionLabel index="06" id="showcase-heading">
           UI Showcase
         </SectionLabel>
-        <div className="mt-10 grid gap-6 lg:grid-cols-12">
-          {caseStudy.gallery.map((src, i) => (
-            <Reveal
-              key={src}
-              variants={imageReveal}
-              delay={i * 0.1}
-              className={i === 0 ? 'lg:col-span-8' : 'lg:col-span-4 lg:mt-24'}
-            >
-              <TiltCard max={3}>
-                <figure className="overflow-hidden rounded-2xl border border-white/10 bg-card">
-                  <ProjectImage src={src} alt={`${project.title} screen ${i + 1}`} className="aspect-[16/10] w-full object-cover" sizes="(min-width: 1024px) 60vw, 100vw" />
-                </figure>
-              </TiltCard>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal variants={imageReveal} className="mt-10">
+          <ImageSlider slides={caseStudy.gallery} label={project.title} />
+        </Reveal>
       </section>
 
       {/* ---------------------------------------------------------------- */}

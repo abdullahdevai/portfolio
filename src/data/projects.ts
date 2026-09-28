@@ -8,6 +8,12 @@ export interface CaseStudyResult {
   label: string
 }
 
+export interface GallerySlide {
+  /** Base image path without extension; `.webp`, `.jpg` and `-800.webp` exist. */
+  src: string
+  caption?: string
+}
+
 export interface Project {
   id: number
   slug: string
@@ -29,7 +35,7 @@ export interface Project {
     features: CaseStudySection[]
     process: CaseStudySection[]
     results: CaseStudyResult[]
-    gallery: string[]
+    gallery: GallerySlide[]
   }
 }
 
@@ -72,7 +78,10 @@ export const projects: Project[] = [
         { value: 'Real-time', label: 'Stock and sales stay in sync' },
         { value: '4-in-1', label: 'POS, inventory, HR and accounting' },
       ],
-      gallery: ['/images/project-1', '/images/project-1-alt'],
+      gallery: [
+        { src: '/images/project-1', caption: 'Marketing site — the all-in-one POS pitch' },
+        { src: '/images/project-1-alt', caption: 'Feature overview for shop owners' },
+      ],
     },
   },
   {
@@ -113,7 +122,10 @@ export const projects: Project[] = [
         { value: 'Multi-vendor', label: 'Many restaurants on one platform' },
         { value: '0%', label: 'Aggregator commission for owners' },
       ],
-      gallery: ['/images/project-2', '/images/project-2-alt'],
+      gallery: [
+        { src: '/images/project-2', caption: 'Discovery — search, cuisines and limited-time offers' },
+        { src: '/images/project-2-alt', caption: 'Restaurant listing, daily deals and most-ordered dishes' },
+      ],
     },
   },
   {
@@ -154,7 +166,10 @@ export const projects: Project[] = [
         { value: '3.7/5', label: 'User rating from verified reviews' },
         { value: 'Verified', label: 'Listings reviewed before publishing' },
       ],
-      gallery: ['/images/project-3', '/images/project-3-alt'],
+      gallery: [
+        { src: '/images/project-3', caption: 'Home — hero search with type, area and price filters' },
+        { src: '/images/project-3-alt', caption: 'Featured categories and verified property listings' },
+      ],
     },
   },
   {
@@ -195,7 +210,10 @@ export const projects: Project[] = [
         { value: 'No-code', label: 'Campaigns without developer time' },
         { value: 'UAT', label: 'In user acceptance testing' },
       ],
-      gallery: ['/images/project-4', '/images/project-4-alt'],
+      gallery: [
+        { src: '/images/project-4', caption: 'Campaign banners and category navigation' },
+        { src: '/images/project-4-alt', caption: 'Product grids by category with live pricing' },
+      ],
     },
   },
 ]
