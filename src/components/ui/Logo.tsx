@@ -1,4 +1,5 @@
 import { site } from '../../data/site'
+import { assetUrl } from '../../lib/assetUrl'
 
 const SIZES = { sm: 'h-6 w-6', md: 'h-8 w-8', lg: 'h-16 w-16' } as const
 
@@ -14,7 +15,7 @@ export default function Logo({ size = 'md', wordmark = true, className = '' }: L
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <img
-        src="/images/logo-128.png"
+        src={assetUrl('/images/logo-128.png')}
         alt=""
         width={128}
         height={128}

@@ -22,6 +22,13 @@ npm run preview  # serve the production build
 npm run lint     # eslint (includes React Compiler rules)
 ```
 
+## Deploying to GitHub Pages
+
+The `Deploy to GitHub Pages` workflow builds and deploys the site on every push to
+`master` (or when run manually). In the repository settings, set **Pages → Build
+and deployment → Source** to **GitHub Actions**. The site is configured for the
+repository URL `https://abdullahdevai.github.io/portfolio/`.
+
 ## Editing content
 
 All copy and content lives in `src/data/` — components never hardcode it.

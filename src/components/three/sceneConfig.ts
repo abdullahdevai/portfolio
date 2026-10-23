@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { assetUrl } from '../../lib/assetUrl'
 
 export const ACCENT = '#7b61ff'
 
@@ -20,8 +21,8 @@ export const QUALITY: Record<'high' | 'low', SceneQuality> = {
 }
 
 export const earthTextures = (size: 1024 | 2048) => ({
-  day: `/textures/earth-day-${size}.jpg`,
-  lights: `/textures/earth-lights-${size}.jpg`,
+  day: assetUrl(`/textures/earth-day-${size}.jpg`),
+  lights: assetUrl(`/textures/earth-lights-${size}.jpg`),
 })
 
 /** Small deterministic PRNG (mulberry32) so particle layouts are stable and render-pure. */

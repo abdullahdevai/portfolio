@@ -1,9 +1,11 @@
+import { assetUrl } from '../lib/assetUrl'
+
 export const about = {
   portrait: {
-    webp: '/images/portrait-1200.webp',
-    jpg: '/images/portrait-1200.jpg',
-    smallWebp: '/images/portrait-640.webp',
-    smallJpg: '/images/portrait-640.jpg',
+    webp: assetUrl('/images/portrait-1200.webp'),
+    jpg: assetUrl('/images/portrait-1200.jpg'),
+    smallWebp: assetUrl('/images/portrait-640.webp'),
+    smallJpg: assetUrl('/images/portrait-640.jpg'),
     alt: 'Portrait of Abdullah, full-stack developer, in a dark blazer against a blue-violet background',
   },
   statementLines: ['I build products where', 'solid backends, clean interfaces', 'and motion come together.'],
