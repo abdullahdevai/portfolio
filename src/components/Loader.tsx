@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { site } from '../data/site'
 import { EASE_OUT } from '../animations/variants'
+import { asset } from '../lib/asset'
 
 const MIN_DURATION = 900
 
@@ -51,7 +52,7 @@ export default function Loader({ onComplete }: LoaderProps) {
               animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: EASE_OUT } }}
               exit={{ opacity: 0, y: -12, transition: { duration: 0.3 } }}
             >
-              <img src="/images/logo-128.png" alt="" width={128} height={128} className="h-16 w-16 rounded-full" />
+              <img src={asset('/images/logo-128.png')} alt="" width={128} height={128} className="h-16 w-16 rounded-full" />
               <span className="font-display text-2xl font-bold tracking-tight">
                 {site.initials}
                 <span className="text-accent">.</span>

@@ -1,3 +1,5 @@
+import { asset } from '../lib/asset'
+
 export interface CaseStudySection {
   title: string
   description: string
@@ -48,7 +50,7 @@ export const projects: Project[] = [
     description:
       'An all-in-one cloud POS for modern businesses — sales, inventory, HR and accounting across multiple stores with real-time tracking.',
     technologies: ['Laravel', 'PHP', 'MySQL', 'Vue'],
-    image: '/images/project-1',
+    image: asset('/images/project-1'),
     liveUrl: 'https://readypos.razinsoft.com/',
     githubUrl: '',
     featured: true,
@@ -79,8 +81,8 @@ export const projects: Project[] = [
         { value: '4-in-1', label: 'POS, inventory, HR and accounting' },
       ],
       gallery: [
-        { src: '/images/project-1', caption: 'Marketing site — the all-in-one POS pitch' },
-        { src: '/images/project-1-alt', caption: 'Feature overview for shop owners' },
+        { src: asset('/images/project-1'), caption: 'Marketing site — the all-in-one POS pitch' },
+        { src: asset('/images/project-1-alt'), caption: 'Feature overview for shop owners' },
       ],
     },
   },
@@ -92,7 +94,7 @@ export const projects: Project[] = [
     description:
       'A multi-restaurant food ordering and delivery platform with pickup and delivery flows, live order tracking and online payment.',
     technologies: ['Laravel', 'Nuxt', 'MySQL', 'REST API'],
-    image: '/images/project-2',
+    image: asset('/images/project-2'),
     liveUrl: 'https://foodget.razinsoft.com/',
     githubUrl: '',
     featured: true,
@@ -123,8 +125,8 @@ export const projects: Project[] = [
         { value: '0%', label: 'Aggregator commission for owners' },
       ],
       gallery: [
-        { src: '/images/project-2', caption: 'Discovery — search, cuisines and limited-time offers' },
-        { src: '/images/project-2-alt', caption: 'Restaurant listing, daily deals and most-ordered dishes' },
+        { src: asset('/images/project-2'), caption: 'Discovery — search, cuisines and limited-time offers' },
+        { src: asset('/images/project-2-alt'), caption: 'Restaurant listing, daily deals and most-ordered dishes' },
       ],
     },
   },
@@ -136,7 +138,7 @@ export const projects: Project[] = [
     description:
       'A property marketplace for rent, sale and investment listings — with agent profiles, rich search and a multi-currency, multi-language front end.',
     technologies: ['Laravel', 'Vue', 'MySQL', 'Tailwind'],
-    image: '/images/project-3',
+    image: asset('/images/project-3'),
     liveUrl: 'https://rentdonew.razinsoft.com/',
     githubUrl: '',
     featured: true,
@@ -167,8 +169,8 @@ export const projects: Project[] = [
         { value: 'Verified', label: 'Listings reviewed before publishing' },
       ],
       gallery: [
-        { src: '/images/project-3', caption: 'Home — hero search with type, area and price filters' },
-        { src: '/images/project-3-alt', caption: 'Featured categories and verified property listings' },
+        { src: asset('/images/project-3'), caption: 'Home — hero search with type, area and price filters' },
+        { src: asset('/images/project-3-alt'), caption: 'Featured categories and verified property listings' },
       ],
     },
   },
@@ -180,7 +182,7 @@ export const projects: Project[] = [
     description:
       'A multi-category e-commerce marketplace with campaign banners, category browsing, wishlist and a full account area — from electronics to books.',
     technologies: ['Laravel', 'Vue', 'MySQL', 'REST API'],
-    image: '/images/project-4',
+    image: asset('/images/project-4'),
     liveUrl: 'https://uat-alicom.razinsoft.com/',
     githubUrl: '',
     featured: true,
@@ -211,8 +213,8 @@ export const projects: Project[] = [
         { value: 'UAT', label: 'In user acceptance testing' },
       ],
       gallery: [
-        { src: '/images/project-4', caption: 'Campaign banners and category navigation' },
-        { src: '/images/project-4-alt', caption: 'Product grids by category with live pricing' },
+        { src: asset('/images/project-4'), caption: 'Campaign banners and category navigation' },
+        { src: asset('/images/project-4-alt'), caption: 'Product grids by category with live pricing' },
       ],
     },
   },
